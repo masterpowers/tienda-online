@@ -10,14 +10,14 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> Configuración<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li>{{ HTML::link('admin/categorias', 'Categorias'); }}</li>
-                  <li>{{ HTML::link('admin/productos', 'Productos'); }}</li>
+                  <li><a href="{{route('categorias')}}">Categorias</a> </li>
+                  <li><a href="{{route('productos')}}">Productos</a> </li>
                    <li role="presentation" class="divider"></li>
-                  <li>{{ HTML::link('admin/clientes', 'Clientes'); }}</li>
-                  <li>{{ HTML::link('admin/proveedores', 'Proveedores'); }}</li>
+                  <li><a href="{{route('clientes')}}">Clientes</a></li>
+                  <li><a href="{{route('proveedores')}}">Proveedores</a> </li>
                   <!-- <li>{{ HTML::link('admin/vendedores', 'Vendedores'); }}</li> -->
                    <li role="presentation" class="divider"></li>
-                  <li>{{ HTML::link('admin/users', 'Usuarios'); }}</li>
+                  <li><a href="{{route('usuarios')}}">Usuarios</a></li>
 
                 </ul>
               </li>
@@ -28,7 +28,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-briefcase"></span> Ventas <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li>{{ HTML::link('admin/ventas', 'Ventas'); }}</li>
+                  <li>{{ HTML::link('ventas', 'Ventas'); }}</li>
                 </ul>
               </li>
 

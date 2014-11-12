@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(array('prefix' => '/'), function()
+Route::group(array('prefix' => '/tienda'), function()
 {
 	Route::get('/', function(){
 		$categorias = categoria::all();
@@ -43,7 +43,7 @@ Route::controller('login', 'loginController');
 	Route::controller('api','apiController');
 	Route::controller('consultas','consultas');
 
-	Route::group(array('prefix' => 'admin'), function()
+	Route::group(array('prefix' => '/'), function()
 	{
 
 		Route::get('/',function(){return View::make('index');});
