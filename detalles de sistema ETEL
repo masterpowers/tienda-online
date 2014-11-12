@@ -1,0 +1,18 @@
+agregar fecha de nacimiento en clientes.
+
+
+orden de envio = Traslado de mercadería a otras sucursales.
+
+
+
+
+Detalles de crédito.
+
+1. Tendría qie ir abierto con fecha de pago.
+2. Cantidad de dinero. El cliente puede pagar más o menos de la letra.
+3. Interes, calcula el 3% cuando ya ha vencido la cuenta. 
+4. Calculo de cuotas.... Planes pago, 3 meses, 6 meses, 1 año y 2 años. 
+....... Agregar manualmente la cantidad a pagar y las letras que hay que cancelar.
+
+5. Agregar cantidad a pagar, prima, numero de cuotas, tiempo de pago (cada mes, año).... el sistema tendría que calcular la cantidad a pagar.
+6. 

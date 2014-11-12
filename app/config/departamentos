@@ -1,0 +1,14 @@
+INSERT INTO departamentos (id, departamento) VALUES (1, 'Ahuachapán');
+INSERT INTO departamentos (id, departamento) VALUES (2, 'Cabañas');
+INSERT INTO departamentos (id, departamento) VALUES (3, 'Chalatenango');
+INSERT INTO departamentos (id, departamento) VALUES (4, 'Cuscatlán');
+INSERT INTO departamentos (id, departamento) VALUES (5, 'La Libertad');
+INSERT INTO departamentos (id, departamento) VALUES (6, 'La Paz');
+INSERT INTO departamentos (id, departamento) VALUES (7, 'La Unión');
+INSERT INTO departamentos (id, departamento) VALUES (8, 'Morazán');
+INSERT INTO departamentos (id, departamento) VALUES (9, 'San Miguel');
+INSERT INTO departamentos (id, departamento) VALUES (10, 'San Salvador');
+INSERT INTO departamentos (id, departamento) VALUES (11, 'San Vicente');
+INSERT INTO departamentos (id, departamento) VALUES (12, 'Santa Ana');
+INSERT INTO departamentos (id, departamento) VALUES (13, 'Sonsonate');
+INSERT INTO departamentos (id, departamento) VALUES (14, 'Usulután');

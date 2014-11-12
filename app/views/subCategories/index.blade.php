@@ -1,0 +1,1 @@
+/Applications/XAMPP/xamppfiles/htdocs/marvin/app/views/subCategories/index.blade.php
