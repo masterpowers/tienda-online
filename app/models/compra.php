@@ -49,7 +49,7 @@ class Compra extends Eloquent
 
     public function detalles()
     {
-        return $this->hasMany('detalleCompra', 'compra_id');
+        return $this->hasMany('detalleCompra', 'idCompra');
     }
 
 

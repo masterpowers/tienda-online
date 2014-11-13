@@ -39,6 +39,14 @@ Route::filter('auth', function()
 });
 
 
+//comprobar si es admin
+Route::filter('admin', function()
+{
+	//sería bueno devolver una vista 404
+	if (Auth::user()->tipo != 'Administrador') return Redirect::to('/');
+});
+
+
 Route::filter('auth.basic', function()
 {
 	return Auth::basic();

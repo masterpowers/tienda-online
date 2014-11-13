@@ -17,11 +17,10 @@ class CreateProductosTable extends Migration {
             $table->string('nombre');
             $table->string('descripcion');
             $table->string('idCategoria');
-            $table->string('unidad');
             $table->integer('minimo');
-            $table->string('ubicacion');
             $table->string('modelo');
-            $table->string('garantia');
+            $table->string('imagen');
+            $table->string('precio');
             $table->boolean('activo');
 
             $table->timestamps();

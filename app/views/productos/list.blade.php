@@ -23,37 +23,29 @@
     <tr>
         <th>Codigo</th>
         <th>Producto</th>
+        <th>Precio</th>
         <th>Descripcion</th>
         <th>Categoria</th> 
-        <th>Unidad</th>
         <th>Minimo</th>
         <th>Cantidad</th>
-        <th>Tipo</th>
-        <th>Ubicacion</th>
         <th>Modelo</th>
-        <th>Garantia</th>
-        <th>Tiempo</th>
         <th>Opciones</th>
     </tr>
     @foreach ($productos as $producto)
     <tr>
         <td>{{ $producto->id }}</td>
         <td>{{ $producto->nombre }}</td>
+        <td>{{ $producto->precio}}</td>
         <td>{{ $producto->descripcion }}</td>
         <td>
             <a href="{{ route('productos-categoria', $producto->category->id) }}" > 
                 {{ $producto->category->categoria }}
             </a>
         </td>
-        <td>{{ $producto->unidad}}</td>
         <td>{{ $producto->minimo}}</td>
         <td>{{ $producto->compras()->sum('cantidad') - $producto->ventas()->sum('cantidad') }}</td>
         
-        <td>{{ $producto->tipo}}</td>
-        <td>{{ $producto->ubicacion}}</td>
         <td>{{ $producto->modelo}}</td>
-        <td>{{ $producto->garantia}}</td>
-        <td>{{ $producto->tiempo}}</td>
         <td>
             <a href="{{ route('editarProducto', $producto->id) }}" class="btn btn-primary glyphicon glyphicon-edit"> </a>
              

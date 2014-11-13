@@ -26,7 +26,7 @@
 
 {{ Form::model($compra, $form_data, array('role' => 'form')) }}
     
-        {{ Form::hidden('compra_id', $compra->id, array('class' => 'form-control', 'readOnly', 'placeholder' => 'ID Producto')) }}        
+        {{ Form::hidden('idCompra', $compra->id, array('class' => 'form-control', 'readOnly', 'placeholder' => 'ID Producto')) }}        
       
   <div class="row">
       <div class="form-group col-md-1">
@@ -45,10 +45,6 @@
       <div class="form-group col-md-1">
         {{ Form::label('cantidad', 'Cantidad') }}
         {{ Form::text('cantidad', null, array('class' => 'form-control')) }}        
-      </div>
-      <div class="form-group col-md-1">
-        {{ Form::label('detalle', 'Detalle') }}
-        {{ Form::text('detalle', null, array('class' => 'form-control')) }}        
       </div>
       <div class="form-group col-md-1">
 
@@ -97,6 +93,6 @@
 
 </div>  
 {{--usado para eliminar usuario --}}
-{{ Form::open(array('route' => array('detallecompra.destroy', 'CLIENTE_ID'), 'method' => 'DELETE', 'role' => 'form', 'id' => 'form-delete')) }}
+{{ Form::open(array('route' => array('detalleCompraEliminar', 'CLIENTE_ID'), 'method' => 'DELETE', 'role' => 'form', 'id' => 'form-delete')) }}
 {{ Form::close() }}
 @stop

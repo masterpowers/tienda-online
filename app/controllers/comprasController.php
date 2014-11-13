@@ -50,7 +50,7 @@ class comprasController extends \BaseController {
             $compra->fill($data); 
             $compra->save();
             // Y Devolvemos una redirección a la acción show para mostrar el usuario
-            return Redirect::route('detallecompra.edit', $compra->id);
+            return Redirect::route('detalleCompra', $compra->id);
         }
         else
         {

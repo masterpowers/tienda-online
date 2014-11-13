@@ -37,8 +37,7 @@
         <td>{{ $venta->created_at}}</td>
         <td>{{ $venta->updated_at}}</td>
         <td>
-            <a href="{{ route('ventas.edit', $venta->id) }}" class="btn btn-primary glyphicon glyphicon-edit"> </a>
-            <a href="{{ route('ventas.show', $venta->id) }}" class="btn btn-primary glyphicon glyphicon-search"> </a>
+            <a href="{{ route('editarVenta', $venta->id) }}" class="btn btn-primary glyphicon glyphicon-edit"> </a>
              
             <a href="#" data-id="{{ $venta->id }}" class="btn btn-danger btn-delete glyphicon glyphicon-remove"> </a>
 
@@ -53,7 +52,7 @@
 </div>
 
 {{--usado para eliminar usuario --}}
-{{ Form::open(array('route' => array('ventas.destroy', 'CLIENTE_ID'), 'method' => 'DELETE', 'role' => 'form', 'id' => 'form-delete')) }}
+{{ Form::open(array('route' => array('detalleVentaEliminar', 'CLIENTE_ID'), 'method' => 'DELETE', 'role' => 'form', 'id' => 'form-delete')) }}
 {{ Form::close() }}
 @stop
 

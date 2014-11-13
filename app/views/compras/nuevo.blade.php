@@ -29,31 +29,18 @@
         {{ Form::text('id', null, array('placeholder' => 'ID', 'class' => 'form-control', 'readonly'=>'true')) }}
       </div>
       <div class="form-group col-md-3">
-        {{ Form::label('comprobante', 'Comprobante') }}
-        {{ Form::text('comprobante', null, array('placeholder' => 'Comprobante', 'class' => 'form-control')) }}
+        {{ Form::label('search', 'Proveedor')}}
+        {{ Form::text('search', $proveedor, array( 'class' => 'form-control', 'placeholder' => 'Nombre de proveedor', 'data-url' => 'proveedor', 'data-cod' => 'idProveedor')) }}
+        <a href="http://localhost/cdmype/public/proveedores/create" target='_blank'>Nuevo</a>
       </div>
       <div class="form-group col-md-2">
         {{ Form::label('fecha', 'Fecha (año-mes-día)') }}
         {{ Form::text('fecha', date("Y-m-d"), array('class' => 'form-control date')) }}        
       </div>
     </div>
-  <div class="row">
-      <div class="form-group col-md-1">
-        {{ Form::label('idProveedor', 'ID prov.') }}
-        {{ Form::text('idProveedor', null, array('class' => 'form-control', 'readOnly', 'placeholder' => 'ID Proveedor')) }}        
-      </div>
-      <div class="form-group col-md-3">
-        {{ Form::label('search', 'Proveedor')}}
-        {{ Form::text('search', $proveedor, array( 'class' => 'form-control', 'placeholder' => 'Nombre de proveedor', 'data-url' => 'proveedor', 'data-cod' => 'idProveedor')) }}
-        <a href="http://localhost/cdmype/public/proveedores/create" target='_blank'>Nuevo</a>
-      </div>
-      </div>
-    <div class="row">
-      <div class="form-group col-md-6">
-        {{ Form::label('detalle', 'Detalles') }}
-        {{ Form::text('detalle', null, array('placeholder' => 'Detalles de la venta', 'class' => 'form-control')) }}
-      </div>
-    </div>
+        {{ Form::label('idProveedor', ' ') }}
+        {{ Form::hidden('idProveedor', null, array('class' => 'form-control', 'readOnly', 'placeholder' => 'ID Proveedor')) }}        
+     
 
     {{ Form::button($action . '', array('type' => 'submit', 'class' => 'btn btn-success')) }}
   {{Form::close()}}

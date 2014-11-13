@@ -22,8 +22,6 @@
         <th>Fecha</th>
         <th>Proveedor</th>
         <th>Contacto</th>
-        <th>Comprobante</th>
-        <th>Detalles</th>
         <th>Productos</th>
         <th>Total</th>
         <th>Opciones</th>
@@ -34,15 +32,13 @@
     <tr>
         <td>{{ $compra->id }}</td>
         <td>{{ date("d/m/Y",strtotime($compra->fecha))}}</td>
-        <td> <a href="{{ route('proveedores.show', $compra->proveedor->id)}}" > {{ $compra->proveedor->nombre }} </a></td>
+        <td> <a href="{{ route('verProveedor', $compra->proveedor->id)}}" > {{ $compra->proveedor->nombre }} </a></td>
         <td>{{ $compra->proveedor->contacto }}</td>
-        <td>{{ $compra->comprobante }}</td>
-        <td>{{ $compra->detalle }}</td>
-        <td>{{ $compra->detalles()->sum('cantidad') }}</td>
+        <td>{{ $compra->detalles()->sum("cantidad") }}</td>
         <td> $ {{ $compra->total()}}</td>
         <td>
-            <a href="{{ route('editar-compra', $compra->id) }}" class="btn btn-primary glyphicon glyphicon-edit"> </a>
-            <a href="{{ route('detallecompra.edit', $compra->id) }}" class="btn btn-primary glyphicon glyphicon-search"> </a>
+            <a href="{{route('editar-compra', $compra->id) }}" class="btn btn-primary glyphicon glyphicon-edit"> </a>
+            <a href="{{route('detalleCompra', $compra->id) }}" class="btn btn-primary glyphicon glyphicon-search"> </a>
              
             <a href="#" data-id="{{ $compra->id }}" class="btn btn-danger btn-delete glyphicon glyphicon-remove"> </a>
 

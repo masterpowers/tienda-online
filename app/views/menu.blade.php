@@ -4,20 +4,29 @@
 @section('menu')
 <nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{{url('/')}}">Tienda Online</a>
+          </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> Configuración<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="{{route('categorias')}}">Categorias</a> </li>
                   <li><a href="{{route('productos')}}">Productos</a> </li>
-                   <li role="presentation" class="divider"></li>
-                  <li><a href="{{route('clientes')}}">Clientes</a></li>
+                  <!-- <li><a href="{{route('clientes')}}">Clientes</a></li> -->
                   <li><a href="{{route('proveedores')}}">Proveedores</a> </li>
                   <!-- <li>{{ HTML::link('admin/vendedores', 'Vendedores'); }}</li> -->
                    <li role="presentation" class="divider"></li>
-                  <li><a href="{{route('usuarios')}}">Usuarios</a></li>
+                  <li><a href="{{route('usuarios')}}">Usuarios | Cliente</a></li>
 
                 </ul>
               </li>
@@ -26,10 +35,8 @@
             </li>
                   
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-briefcase"></span> Ventas <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li>{{ HTML::link('ventas', 'Ventas'); }}</li>
-                </ul>
+                <a href="{{ route('ventas')}}"><span class="glyphicon glyphicon-briefcase"></span> Ventas </a>
+                
               </li>
 
 
@@ -44,7 +51,7 @@
 
                 </ul>
               </li> -->
-              <li>
+            <!--   <li>
                {{ Form::open(array('url' => '/buscar', 'method' => 'post', 'class' => 'navbar-form navbar-left', 'role' => 'search')) }}
                <div class="form-group">
                    {{ Form::text('term', null, array('placeholder' => 'Buscar', 'class' => 'form-control')) }}
@@ -65,8 +72,8 @@
                </div>
                {{ Form::close() }}
 
-              </li>
-              <li><a href="./login/logout"><span class="glyphicon glyphicon-off"></span> Salir</a></li>
+              </li> -->
+              <li class="pull-right "><a href="{{route('logOut')}}"><span class="glyphicon glyphicon-off"></span> Salir</a></li>
               
             </ul>
           </div><!-- /.navbar-collapse -->

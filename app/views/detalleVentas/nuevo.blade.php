@@ -8,23 +8,8 @@
 <div class="panel panel-default">
 <div class="panel-heading">
     <h1> Detalle de venta</h1>
-        {{ HTML::link('ventas', 'Todos', array('class' => 'glyphicon glyphicon-list'))}}
-        
-       {{ HTML::link('ventas/create', 'Nuevo', array('class' => 'glyphicon glyphicon-file'))}}
   </div>
   <div class="panel-body">
-
-
-
-<div class="list-group">
-    <a href="{{ route('ventas.edit', $venta->id) }}" class="list-group-item" >
-      <h4 class="list-group-item-heading">{{ $venta->cliente->nombre}} </h4>
-      <p class="list-group-item-text"> {{ $venta->cliente->direccion}} <small> {{ $venta->cliente->telefono}}</small></p>
-    </a>
-</div>
-
-
-
 
   @include ('errors', array('errors' => $errors))
 
@@ -52,16 +37,7 @@
         {{ Form::label('cantidad', 'Cantidad') }}
         {{ Form::text('cantidad', null, array('class' => 'form-control')) }}        
       </div>
-      <div class="form-group col-md-2">
-        {{ Form::label('detalle', 'Detalles') }}
-        {{ Form::text('detalle', null, array('class' => 'form-control')) }}        
-      </div>
     </div>
-@if($venta->Pago == 'Credito')
-  {{
-    HTML::link('pago/venta/' . $venta->id, 'Agregar Pagos', array('class' => 'btn btn-danger')) 
-  }}
-  @endif
 
     {{ Form::button($action, array('type' => 'submit', 'class' => 'btn btn-success')) }}
   {{Form::close()}}
@@ -75,7 +51,6 @@
     <tr>
         <th>Cantidad</th>
         <th>Producto</th>
-        <th>Detalles</th>
         <th>Precio</th>
         <th>Total</th>
         <th>Opciones</th>
@@ -86,7 +61,6 @@
     <tr>
         <td>{{ $detalle->cantidad }}</td>
         <td>{{ $detalle->productos->nombre }}</td>
-        <td>{{ $detalle->detalle }}</td>
         <td>$ {{ $detalle->precio }}</td>
         <td>$ {{$detalle->precio * $detalle->cantidad}}</td>
         <td>
@@ -114,6 +88,6 @@
 
 </div>  
 {{--usado para eliminar usuario --}}
-{{ Form::open(array('route' => array('detalleventa.destroy', 'CLIENTE_ID'), 'method' => 'DELETE', 'role' => 'form', 'id' => 'form-delete')) }}
+{{ Form::open(array('route' => array('detalleVentaEliminar', 'CLIENTE_ID'), 'method' => 'DELETE', 'role' => 'form', 'id' => 'form-delete')) }}
 {{ Form::close() }}
 @stop

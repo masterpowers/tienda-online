@@ -7,7 +7,7 @@
     {{-- Bootstrap --}}
     {{ HTML::style('assets/css/bootstrap.min.css', array('media' => 'screen')) }}
     {{-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --}}
-     {{ HTML::script('assets/js/jquery.js') }}
+    {{ HTML::script('assets/js/jquery.js') }}
 
     {{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
     {{-- Include all compiled plugins (below), or include individual files as needed --}}

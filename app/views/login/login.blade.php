@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>@yield('title', 'Aprendiendo Laravel')</title>
+    <title>@yield('title', 'Iniciar sesion')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- Bootstrap --}}
     {{ HTML::style('assets/css/bootstrap.min.css', array('media' => 'screen')) }}
@@ -14,24 +14,8 @@
   </head>
   <body>
     {{-- Wrap all page content here --}}
-    <div id="wrap">
-     <ul>
-      @foreach($errors->all() as $error)
-         <li>{{ $error }}</li>
-      @endforeach
-   </ul>
-      {{-- Begin page content --}}
-      <div class="container">
-        {{ Form::open(array('url'=>'login/signin', 'class'=>'form-signin')) }}
-		   <h2 class="form-signin-heading">Please Login</h2>
-		 
-		   {{ Form::text('email', null, array('class'=>'form-control', 'placeholder'=>'Email Address')) }}
-		   {{ Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password')) }}
-		 
-		   {{ Form::submit('Login', array('class'=>'btn btn-large btn-primary btn-block'))}}
-		{{ Form::close() }}
-
-      </div>
+    <div id="container">
+      @include('login.form')
     </div>
 
     {{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}

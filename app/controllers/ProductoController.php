@@ -103,7 +103,7 @@ class ProductoController extends \BaseController {
 			}
 			return Response::json($results);
 
-		}
+		} 
 
 
 		$producto = producto::find($id);
@@ -111,7 +111,7 @@ class ProductoController extends \BaseController {
         {
             App::abort(404);
         }
-		$form_data = array('route' => array('productos.update', $producto->id), 'method' => 'PATCH');
+		$form_data = array('route' => array('updateProducto', $producto->id), 'method' => 'PATCH');
         $action    = 'Editar';
 		//var_dump( $cliente);
 		return View::make('productos/nuevo', compact('producto', 'form_data', 'action'));
@@ -142,7 +142,7 @@ class ProductoController extends \BaseController {
         // Revisamos si la data es válido
         if ($producto->ValidAndSave($data))
         {
-            return Redirect::to('productos');
+            return Redirect::route('productos');
         }
         else
         {

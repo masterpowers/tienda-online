@@ -61,7 +61,7 @@ class detalleVentaController extends \BaseController {
         {
             App::abort(404);
         }
-		$form_data = array('route' => array('detalleventa.update', $venta->id), 'method' => 'PATCH');
+		$form_data = array('route' => array('detalleVentaGuardar', $venta->id), 'method' => 'PATCH');
         $action    = 'Continuar';
 		//var_dump( $cliente);
 		return View::make('detalleventas/nuevo', compact('venta', 'form_data', 'action'));
@@ -87,11 +87,11 @@ class detalleVentaController extends \BaseController {
         if ($detalleVenta->ValidAndSave($data))
         {   
         	$venta = venta::find($id);
-        	return Redirect::route('detalleventa.edit', $venta->id);
+        	return Redirect::route('detalleVenta', $venta->id);
         	//return 'Detalle almacenado correctamente';
         }
         else
-        {return Redirect::route('detalleventa.edit', $id)->withInput()->withErrors($detalleVenta->errors);}
+        {return Redirect::route('detalleVenta', $id)->withInput()->withErrors($detalleVenta->errors);}
 	}
 
 	/**
@@ -123,7 +123,7 @@ class detalleVentaController extends \BaseController {
         }
         else
         {
-            return Redirect::route('detalleventas');
+            return Redirect::route('detalleVentas');
         }
 	}
 

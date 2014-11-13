@@ -8,7 +8,7 @@ class detalleCompra extends Eloquent
 	protected $table = "detalleCompras";
 
 
-    protected $fillable = array('compra_id', 'idProducto', 'precioSinIva', 'precioConIva', 'cantidad', 'detalle');
+    protected $fillable = array('idCompra', 'idProducto', 'precioSinIva', 'precioConIva', 'cantidad', 'detalle');
 
 
     public function compra()
@@ -20,7 +20,7 @@ class detalleCompra extends Eloquent
     public function isValid($data)
     {
         $rules = array(
-            'compra_id'     => 'required',
+            'idCompra'     => 'required',
             'idProducto'     => 'required',
             'precioSinIva'     => 'required',
             'cantidad'     => 'required',

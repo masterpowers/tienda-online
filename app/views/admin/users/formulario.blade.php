@@ -1,27 +1,3 @@
-@extends ('./admin/layout')
-
-<?php
-
-    if ($user->exists):
-        $form_data = array('route' => array('updateUsuario', $user->id), 'method' => 'PATCH');
-        $action    = 'Editar';
-    else:
-        $form_data = array('route' => 'guardarUsuario', 'method' => 'POST');
-        $action    = 'Crear';        
-    endif;
-
-?>
-
-@section ('title') {{ $action }} Usuarios @stop
-
-@section ('content')
-
-  <h1>{{ $action }} Usuarios</h1>
-
-  <p>
-    <a href="{{ route('usuarios') }}" class="btn btn-info">Lista de usuarios</a>
-  </p>
-
 {{ Form::model($user, $form_data, array('role' => 'form')) }}
 
   @include ('admin/errors', array('errors' => $errors))
@@ -34,6 +10,15 @@
     <div class="form-group col-md-4">
       {{ Form::label('full_name', 'Nombre completo') }}
       {{ Form::text('full_name', null, array('placeholder' => 'Introduce tu nombre y apellido', 'class' => 'form-control')) }}        
+    </div>
+    <div class="form-group col-md-2">
+      @if(Auth::check() && Auth::user()->tipo == 'Administrador')
+        {{ Form::label('tipo', 'Tipo') }}
+        <select name="tipo" class="form-control">
+            <option value="Cliente" selected> Cliente</option>
+            <option value="Administrador"> Administrador</option>
+        </select>
+      @endif
     </div>
   </div>
   <div class="row">
@@ -49,5 +34,3 @@
   {{ Form::button($action . ' usuario', array('type' => 'submit', 'class' => 'btn btn-primary')) }}    
   
 {{ Form::close() }}
-
-@stop

@@ -36,7 +36,7 @@
       <div class="form-group col-md-3">
         {{ Form::label('search', 'Cliente') }}
         {{ Form::text('search',  $cliente, array('placeholder' => 'Nombre de Cliente', 'class' => 'form-control', 'data-url' => 'cliente', 'data-cod' => 'idCliente')) }}
-        <a href="http://localhost/cdmype/public/clientes/create" target='_blank'>Nuevo</a>
+       
       </div>
       <div class="form-group col-md-2">
         {{ Form::label('fecha', 'Fecha') }}

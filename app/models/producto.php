@@ -4,7 +4,7 @@ class producto extends Eloquent
 	protected $guarded = array(); //Permite guardar en la base de datos
 	public $errors;
 
-    protected $fillable = array('nombre', 'descripcion', 'idCategoria', 'unidad','minimo', 'ubicacion','modelo','garantia','activo', 'created_at', 'updated_at');
+    protected $fillable = array('nombre', 'descripcion', 'idCategoria', 'precio','minimo', 'ubicacion','modelo','imagen','activo', 'created_at', 'updated_at');
 
     private function isValid($data)
     {

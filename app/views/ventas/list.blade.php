@@ -19,13 +19,10 @@
     <thead>
     <tr>
         <th>Codigo</th>
-        <th>Cliente</th>
-        <th>Vendedor</th>
-        <th>Productos</th>
-        <th>Detalles</th>
-        <th>Total</th>
-        <th>Pago</th>
         <th>Fecha</th>
+        <th>Cliente</th>
+        <th>Productos</th>
+        <th>Total</th>
         <th>Opciones</th>
     </tr>
     </thead>
@@ -33,16 +30,13 @@
     @foreach ($ventas as $venta)
     <tr>
         <td>{{ $venta->id }}</td>
-        <td> <a href="{{route('mostrarCliente', [$venta->cliente->id])}}"> {{ $venta->cliente->nombre }} </a></td>
-        <td> <a href="{{route('vendedores.show', $venta->vendedor['id'])}}">{{ $venta->vendedor['nombre'] }}</td>
-        <td>{{ $venta->detalle()->sum('cantidad') }}</td>
-        <td>{{ $venta->detalles}}</td>
-        <td>$ {{ $venta->total() }}</td>
-        <td>{{ $venta->Pago }}</td>
         <td>{{ $venta->fecha }}</td>
+        <td> <a href="{{route('mostrarCliente', [$venta->cliente->id])}}"> {{ $venta->cliente->full_name }} </a></td>
+        <td>{{ $venta->detalle()->sum('cantidad') }}</td>
+        <td>$ {{ $venta->total() }}</td>
         <td>
-            <a href="{{ route('ventas.edit', $venta->id) }}" class="btn btn-primary glyphicon glyphicon-edit"> </a>
-            <a href="{{ route('detalleventa.edit', $venta->id) }}" class="btn btn-primary glyphicon glyphicon-search"> </a>
+            <a href="{{ route('editarVenta', $venta->id) }}" class="btn btn-primary glyphicon glyphicon-edit"> </a>
+            <a href="{{ route('detalleVenta', $venta->id) }}" class="btn btn-primary glyphicon glyphicon-search"> </a>
              
             <a href="#" data-id="{{ $venta->id }}" class="btn btn-danger btn-delete glyphicon glyphicon-remove"> </a>
 
@@ -57,7 +51,7 @@
 </div>
 
 {{--usado para eliminar usuario --}}
-{{ Form::open(array('route' => array('ventas.destroy', 'CLIENTE_ID'), 'method' => 'DELETE', 'role' => 'form', 'id' => 'form-delete')) }}
+{{ Form::open(array('route' => array('eliminarVenta', 'CLIENTE_ID'), 'method' => 'DELETE', 'role' => 'form', 'id' => 'form-delete')) }}
 {{ Form::close() }}
 @stop
 

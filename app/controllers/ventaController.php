@@ -27,7 +27,7 @@ class ventaController extends \BaseController {
 	{
 		//
 		$venta = new venta();
-		$form_data = array('route' => 'ventas.store', 'method' => 'POST');
+		$form_data = array('route' => 'guardarVenta', 'method' => 'POST');
         $action    = 'Continuar';
 		return View::make('ventas/nuevo', compact('venta','form_data', 'action'));
 	}
@@ -51,12 +51,12 @@ class ventaController extends \BaseController {
             // Guardamos el usuario 
             $venta->save();
             // Y Devolvemos una redirección a la acción show para mostrar el usuario
-            return Redirect::route('detalleventa.edit', $venta->id);
+            return Redirect::route('detalleVenta', $venta->id);
         }
         else
         {
             // En caso de error regresa a la acción create con los datos y los errores encontrados
-			return Redirect::route('ventas.create')->withInput()->withErrors($venta->errors);
+			return Redirect::route('crearVenta')->withInput()->withErrors($venta->errors);
         }
 
 
@@ -95,7 +95,7 @@ class ventaController extends \BaseController {
         {
             App::abort(404);
         }
-		$form_data = array('route' => array('ventas.update', $venta->id), 'method' => 'PATCH');
+		$form_data = array('route' => array('editarVenta', $venta->id), 'method' => 'PATCH');
         $action    = 'Editar';
 		//var_dump( $venta);
 		return View::make('ventas/nuevo', compact('venta', 'form_data', 'action'));
@@ -130,12 +130,12 @@ class ventaController extends \BaseController {
             // Guardamos el usuario
             $venta->save();
             // Y Devolvemos una redirección a la acción show para mostrar el usuario
-            return Redirect::to('ventas');
+            return Redirect::route('ventas');
         }
         else
         {
             // En caso de error regresa a la acción edit con los datos y los errores encontrados
-            return Redirect::route('ventas.edit', $venta->id)->withInput()->withErrors($venta->errors);
+            return Redirect::route('editarVenta', $venta->id)->withInput()->withErrors($venta->errors);
         }
 	}
 

@@ -30,7 +30,7 @@ class Venta extends Eloquent
 
     public function cliente()
     {
-        return $this->belongsTo('cliente', 'idCliente');
+        return $this->belongsTo('User', 'idCliente');
     }
 
     public function vendedor()

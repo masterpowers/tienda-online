@@ -61,7 +61,7 @@ class detalleCompraController extends \BaseController {
         {
             App::abort(404);
         }
-		$form_data = array('route' => array('detallecompra.update', $compra->id), 'method' => 'PATCH');
+		$form_data = array('route' => array('detalleCompraGuardar', $compra->id), 'method' => 'PATCH');
         $action    = 'Continuar';
 		//var_dump( $cliente);
 		return View::make('detalleCompras/nuevo', compact('compra', 'form_data', 'action'));
@@ -88,11 +88,11 @@ class detalleCompraController extends \BaseController {
         {   
         	$compra = compra::find($id);
         	$detalleCompras = detalleCompra::find($id);
-        	return Redirect::route('detallecompra.edit', $compra->id);
+        	return Redirect::route('detalleCompra', $compra->id);
         	//return 'Detalle almacenado correctamente';
         }
         else
-        {return Redirect::route('detallecompra.edit', $id)->withInput()->withErrors($detalleCompra->errors);}
+        {return Redirect::route('detalleCompra', $id)->withInput()->withErrors($detalleCompra->errors);}
 	}
 
 	/**
@@ -124,7 +124,7 @@ class detalleCompraController extends \BaseController {
         }
         else
         {
-            return Redirect::route('detalleCompras');
+            return Redirect::route('detalleCompra');
         }
 	}
 

@@ -4,7 +4,7 @@ class loginController extends \BaseController {
 
 	function getIndex()
 	{
-		return View::make('login/login');
+		return View::make('tienda.sesion');
 	}
 
 
@@ -13,8 +13,8 @@ class loginController extends \BaseController {
 		if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')))) {
 		   return Redirect::to('/');
 		} else {
-		   return Redirect::to('users/login')
-		      ->with('errors', 'Your username/password combination was incorrect')
+		   return Redirect::back()
+		      ->withErrors('Your username/password combination was incorrect')
 		      ->withInput();
 		}
 	}
@@ -22,7 +22,7 @@ class loginController extends \BaseController {
 
 	public function getLogout() {
    		Auth::logout();
-   		return Redirect::to('login')->with('message', 'Your are now logged out!');
+   		return Redirect::to('/');//->with('message', 'Your are now logged out!');
 
 	}
 }
